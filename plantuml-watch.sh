@@ -13,11 +13,11 @@ _write_watching_file () {
 
 _write_bulding () {
   echo -e -n '\e[0K\r  building ...                        ' > /dev/tty
-  pid=$!
+  local pid=$!
 
-  spin='-\|/'
+  local spin='-\|/'
   
-  i=0
+  local i=0
 
   while kill -0 $pid 2>/dev/null
 
@@ -95,7 +95,20 @@ $(_watch_file_changes) &
 # watchs image using feh
 _open_image () {
   $(_write_watching_file)
-  feh --reload 3 $WATCH_FILE > /dev/null 2>&1
+  local height=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
+  local width=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
+
+  local half_width=$(($width / 2))
+
+  local feh_width=$half_width
+  local feh_height=$height
+  local feh_offset_x=$half_width
+  local feh_offset_y=0
+
+  feh \
+    --reload 3 \
+    --geometry "${feh_width}x${feh_height}+${feh_offset_x}+${feh_offset_y}" \
+    $WATCH_FILE > /dev/null 2>&1
 }
 
 $(_open_image)
