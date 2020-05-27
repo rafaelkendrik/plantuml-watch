@@ -15,7 +15,7 @@ the .pu file while feh will be looking for changes in the output image.
 ```sh
 $ git clone git@github.com:rafaelkendrik/plantuml-watch.git
 $ cp plantuml-watch/plantuml-watch.sh /usr/bin/plantuml-watch
-$ chmod +x /usr/bin/plantum-watch
+$ chmod +x /usr/bin/plantuml-watch
 ```
 
 # Usage
