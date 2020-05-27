@@ -1,6 +1,8 @@
 # plantuml-watch
 A really really simple tool that watchs changes in a plantuml.
 
+![plantuml watch demo](./assets/demo.gif)
+
 # Motivation
 It is a pain in the nack perform repetitive tasks. This script will watch changes in file using git diff, then, it will built
 the .pu file while feh will be looking for changes in the output image.
