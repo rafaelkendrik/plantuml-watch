@@ -1,4 +1,4 @@
-# plantuml-hot-reload
+# plantuml-watch
 A really really simple tool that watchs changes in a plantuml.
 
 # Motivation
